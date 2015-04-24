@@ -13,16 +13,16 @@
 
 #ifndef ROBOT_H_INCLUDED
 #define ROBOT_H_INCLUDED
-
+#include "Maze.h"
 class Robot
 {
 
     private:
-        Maze mazeGrid;
-        int x_position, y_position;
         char robot;
 
     public:
+        Maze mazeGrid[50][50];
+        int x_position, y_position;
         Robot();
         //*********************************************************
         //Summary: Constructor, will initialize an object's variables.
@@ -73,6 +73,9 @@ class Robot
         //condition:
         // Precondition:
         //*********************************************************
+        void setRobot(char c);
+        void displayMaze();
 
 };
+
 #endif // ROBOT_H_INCLUDED

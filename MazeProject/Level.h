@@ -4,7 +4,7 @@
 class Level{
 	private:
 		int currentLevel;
-		Maze mazeSelection[1];
+		//Maze mazeSelection;
 
 
 	public:
@@ -13,7 +13,7 @@ class Level{
 		void setCurrentLevel();
 };
 
-#endef LEVEL_H
+#endif LEVEL_H
 
 
 
