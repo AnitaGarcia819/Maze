@@ -1,35 +1,35 @@
 #include <iostream>
 #include "Robot.h"
 #include "Maze.h"
+#include <iostream>
 
 Maze::Maze()
  {
      //currentLevel = 1;
-    wall = '*';/*
+    defaultIcon = '_';
+    wall = '*';
     for(int row = 0; row < ROW; row++)
     {
         for(int col = 0; col < COL; col++)
         {
-            maze[row][col] = '_';
+            maze[row][col] = defaultIcon;
 
         }
         cout << endl;
     }
-    cout << endl;*/
-    generateMaze(1);
+    cout << endl;
  }
 
-void Maze::generateMaze(int current_level)
+void Maze::generateLevel(int level)
  {
-    if(current_level == 1)
+    if(level == 1)
     {
         for(int x = 0; x < 10; x++)
         {
             for(int y = 0; y < 10; y++)
             {
-               if(!((x == 0 && y == 0 ) && (x == 9 && y == 9)))
-
-                    maze[x][y] == wall;
+               if(y == 1 && x != 9)
+                    maze[x][y] = '*';
             }
         }
     }
@@ -59,4 +59,15 @@ void Maze::displayMaze()
         cout << endl;
     }
     cout << endl;
+}
+bool Maze::isWall(int next_x, int next_y)
+{
+    if(maze[next_x][next_y] == wall)
+        return true;
+
+    return false;
+}
+void Maze::setDefaultIcon(char i)
+{
+    defaultIcon = i;
 }

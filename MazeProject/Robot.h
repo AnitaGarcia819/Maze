@@ -31,14 +31,7 @@ class Robot
         //condition:
         // Precondition:
         //*********************************************************
-        bool isWall(int x_position, int y_position);
-        //*********************************************************
-        //Summary: isWall will return true or false whether there is
-        //         char (a wall) in the direction of where the robot
-        //         wants to move.
-        //condition:
-        // Precondition:
-        //*********************************************************
+
 
         bool isFinished(int x_position, int y_position);
         //*********************************************************
@@ -80,7 +73,8 @@ class Robot
         void increaseCurrentLevel();
         int getCurrentLevel() const {return Robot::currentLevel;}
         void resetRobot();// Sets robot to 0,0 && generates new maze
-
+        void drawRobot(int next_x, int next_y); // Draws robot in the next_x & next_y  coordinates
+        void replacePreviousRobot(int previous_x, int previous_y);
 
 };
 

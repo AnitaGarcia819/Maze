@@ -10,15 +10,25 @@ using namespace std;
 class Maze
 {
     private:
-
+        char defaultIcon;
         char wall; //might not need it
 
     public:
         char maze[ROW][COL];
         Maze();
-        void generateMaze(int current_level);
+        void generateLevel(int current_level);
+        char getDefaultIcon() const{return defaultIcon;}
+        void setDefaultIcon(char i);
         char getWall() const {return wall;}
         void setWall(char c);
         void displayMaze();
+        bool isWall(int x_position, int y_position);
+        //*********************************************************
+        //Summary: isWall will return true or false whether there is
+        //         char (a wall) in the direction of where the robot
+        //         wants to move.
+        //condition:
+        // Precondition:
+        //*********************************************************
 };
 #endif //MAZE_H_INCLUDED
