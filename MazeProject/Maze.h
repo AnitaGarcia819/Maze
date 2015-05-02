@@ -5,26 +5,20 @@ using namespace std;
 
 //const unsigned int ROW = 50;
 //const unsigned int COL = 50;
-        const int ROW = 50;
-        const int COL = 50;
+        const int ROW = 10;
+        const int COL = 10;
 class Maze
 {
     private:
-        char maze[ROW][COL];
+
         char wall; //might not need it
 
     public:
-        static int currentLevel;
+        char maze[ROW][COL];
         Maze();
-       // void generateMaze(int current_level);
-
-        char getWall(int x, int y);
+        void generateMaze(int current_level);
+        char getWall() const {return wall;}
         void setWall(char c);
-        bool isWall(int x, int y);
-        void increaseCurrentLevel();
-        int getCurrentLevel() const {return currentLevel;}
-
-
-
+        void displayMaze();
 };
 #endif //MAZE_H_INCLUDED

@@ -13,7 +13,7 @@ class Level{
 		void setCurrentLevel();
 };
 
-#endif LEVEL_H
+#endif // LEVEL_H
 
 
 

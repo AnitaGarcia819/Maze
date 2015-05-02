@@ -21,11 +21,13 @@ class Robot
         char robot;
 
     public:
-        Maze mazeGrid[50][50];
+        static int currentLevel;
+        Maze mazeGrid;
         int x_position, y_position;
         Robot();
         //*********************************************************
         //Summary: Constructor, will initialize an object's variables.
+        // and place the robot at th starting position.
         //condition:
         // Precondition:
         //*********************************************************
@@ -74,7 +76,11 @@ class Robot
         // Precondition:
         //*********************************************************
         void setRobot(char c);
-        void displayMaze();
+
+        void increaseCurrentLevel();
+        int getCurrentLevel() const {return Robot::currentLevel;}
+        void resetRobot();// Sets robot to 0,0 && generates new maze
+
 
 };
 

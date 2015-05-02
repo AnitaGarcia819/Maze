@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Robot.h"
 #include "Maze.h"
-int Maze::currentLevel = 1;
+
 Maze::Maze()
  {
      //currentLevel = 1;
-    wall = '*';
+    wall = '*';/*
     for(int row = 0; row < ROW; row++)
     {
         for(int col = 0; col < COL; col++)
@@ -15,47 +15,48 @@ Maze::Maze()
         }
         cout << endl;
     }
-    cout << endl;
+    cout << endl;*/
+    generateMaze(1);
  }
-/*
+
 void Maze::generateMaze(int current_level)
  {
     if(current_level == 1)
-        for(int x = 1; x < 49; x++)
+    {
+        for(int x = 0; x < 10; x++)
         {
-            for(int y = 1; y < 49; y++)
+            for(int y = 0; y < 10; y++)
             {
-               if(y == 1)
-                maze[x][y] == wall;
+               if(!((x == 0 && y == 0 ) && (x == 9 && y == 9)))
+
+                    maze[x][y] == wall;
             }
         }
+    }
+        //generate a maze
+  // else if(current_level == 2)
+        //generate a maze
+//    else
+        //generate a maze
 
-        //generate a maze
-   else if(current_level == 2)
-        //generate a maze
-    else
-        //generate a maze
+ }
 
- }*/
-char Maze::getWall(int x, int y)
-{
-    if(maze[x][y] == isWall(x, y))
-     return wall;
-}
 
 void Maze::setWall(char c)
 {
     wall = c;
 }
-bool Maze::isWall(int x, int y)
+void Maze::displayMaze()
 {
-    if(maze[x][y] == wall)
-        return true;
+    for(int row = 0; row < 10; row++)
+    {
+        for(int col = 0; col < 10; col++)
+        {
+            // To do: display character at maze[row][col]
+            cout << maze[row][col];
 
-    return false;
-}
-void Maze::increaseCurrentLevel()
-{
-    if(Maze::currentLevel < 3)
-        Maze::currentLevel++;
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
