@@ -38,13 +38,23 @@ bool Robot::isFinished(int x_position, int y_position)
 void Robot::moveLeft()
 {
    // assert(!(mazeGrid[x_position][y_position--].isWall(x_position, y_position--)));
-    assert(y_position-- >= 0);
-    y_position--;
+    assert(y_position - 1 >= 0);
+
+    int next_y = y_position - 1;
+    if(mazeGrid.isWall(x_position, next_y))
+        cout << "There's a wall, try again!" << endl;
+    else
+    {
+        y_position = y_position - 1;
+        drawRobot(x_position, y_position);
+        replacePreviousRobot(x_position, y_position + 1);
+        mazeGrid.displayMaze();
+    }
 
 }
 void Robot::moveRight()
 {
-    assert(y_position + 1 < 10);
+    assert(y_position + 1 <= 10);
     int next_y = y_position + 1;
     if(mazeGrid.isWall(x_position, next_y))
         cout << ">> There's a wall, try again! << " << endl;
@@ -67,13 +77,25 @@ void Robot::moveUp()
         x_position = x_position - 1;
         drawRobot(x_position, y_position);
         replacePreviousRobot(x_position + 1, y_position);
+        mazeGrid.displayMaze();
     }
 }
 void Robot::moveDown()
 {
-   // assert(!(mazeGrid[x_position++][y_position].isWall(x_position++, y_position)));
-    assert(x_position++ < 50);
-    x_position++;
+
+    assert(x_position + 1 <= 10);
+     int next_x = x_position + 1;
+    if(mazeGrid.isWall(next_x, y_position))
+        cout << "There's a wall, try again!" << endl;
+    else
+    {
+        x_position = x_position + 1;
+        drawRobot(x_position, y_position);
+        replacePreviousRobot(x_position - 1, y_position);
+        mazeGrid.displayMaze();
+    }
+   // y_position--;
+    //x_position++;
 }
 void Robot::setRobot(char c)
 {

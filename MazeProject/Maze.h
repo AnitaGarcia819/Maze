@@ -1,6 +1,5 @@
 #ifndef MAZE_H_INCLUDED
 #define MAZE_H_INCLUDED
-#include "Level.h"
 using namespace std;
 
 //const unsigned int ROW = 50;
