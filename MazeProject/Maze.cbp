@@ -32,8 +32,6 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Driver.cpp" />
-		<Unit filename="Level.cpp" />
-		<Unit filename="Level.h" />
 		<Unit filename="Maze.cpp" />
 		<Unit filename="Maze.h" />
 		<Unit filename="Robot.cpp" />

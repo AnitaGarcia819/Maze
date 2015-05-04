@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Maze.h"
-#include <iostream>
 
 Maze::Maze()
  {
