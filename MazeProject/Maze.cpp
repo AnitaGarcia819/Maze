@@ -27,11 +27,19 @@ void Maze::generateLevel(int level)
         {
             for(int y = 0; y < 10; y++)
             {
-               if(y == 1 && x != 9)
+                if((y == 2 && x == 0) || (y == 3 && x == 0) || (y == 4 && x == 0) || (y == 5 && x == 0) || (y == 6 && x == 0) || (y == 7 && x == 0) ||  (y == 8 && x == 0)|| (y == 9 && x == 0)) // first row wall
+                    maze[x][y] = '*';
+                if((y == 0 && x == 1) || (y == 0 && x == 2) || (y == 0 && x == 3) || (y == 0 && x == 4) || (y == 0 && x == 5) || (y == 0 && x == 6) || (y == 0 && x == 7) ||  (y == 0 && x == 8)|| (y == 0 && x == 9)) //left column wall
+                    maze[x][y] = '*';
+                if((y == 0 && x == 9) || (y == 1 && x == 9) || (y == 2 && x == 9) || (y == 3 && x == 9) || (y == 4 && x == 9) || (y == 5 && x == 9) ||  (y == 6 && x == 9)|| (y == 7 && x == 9)|| (y == 8 && x == 9)) //bottom row wall
+                    maze[x][y] = '*';
+                if((y == 9 && x == 1) || (y == 9 && x == 2) || (y == 9 && x == 3) || (y == 9 && x == 4) || (y == 9 && x == 5) || (y == 9 && x == 6) || (y == 9 && x == 7) ||  (y == 9 && x == 8)) // right column wall
+                    maze[x][y] = '*';
+                if((x == 2 && y == 1) || (x == 2 && y == 2))
                     maze[x][y] = '*';
             }
         }
-    }
+   }
         //generate a maze
   // else if(current_level == 2)
         //generate a maze

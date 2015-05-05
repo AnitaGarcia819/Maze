@@ -8,6 +8,8 @@ int main()
    Robot bob;
 
     bob.mazeGrid.displayMaze();
+    bob.mazeGrid.generateLevel(1);
+    bob.mazeGrid.displayMaze();
     //bob.mazeGrid.generateLevel(1);
     //bob.mazeGrid.displayMaze();
 
