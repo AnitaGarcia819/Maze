@@ -6,13 +6,6 @@ using namespace std;
 int main()
 {
    Robot bob;
-   char direction;
-    cin >> direction;
-    switch(direction)
-    {
-        case 'H':
-            bob.moveUp();
-    }
-    bob.mazeGrid.displayMaze();
+    bob.playGame();
     return 0;
 }
