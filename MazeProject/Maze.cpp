@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Maze.h"
-#include <iostream>
+#include "Robot.h"
 
 Maze::Maze()
  {
@@ -19,7 +19,7 @@ Maze::Maze()
     cout << endl;
  }
 
-void Maze::generateLevel(int level)
+void Maze::generateNewLevel(int level)
  {
     if(level == 1)
     {
@@ -55,6 +55,7 @@ void Maze::setWall(char c)
 }
 void Maze::displayMaze()
 {
+    cout << "======= Level " << Robot::currentLevel << " =======" << endl;
     for(int row = 0; row < 10; row++)
     {
         for(int col = 0; col < 10; col++)

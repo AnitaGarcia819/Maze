@@ -15,7 +15,7 @@ class Maze
     public:
         char maze[ROW][COL];
         Maze();
-        void generateLevel(int current_level);
+        void generateNewLevel(int current_level);
         char getDefaultIcon() const{return defaultIcon;}
         void setDefaultIcon(char i);
         char getWall() const {return wall;}
