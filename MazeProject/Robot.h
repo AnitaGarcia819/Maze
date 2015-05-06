@@ -24,7 +24,7 @@ class Robot
         static int currentLevel;
         Maze mazeGrid;
         int x_position, y_position;
-      //  bool isGameOver;
+        bool gameOver;
         Robot();
         //*********************************************************
         //Summary: Constructor, will initialize an object's variables.
