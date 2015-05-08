@@ -37,7 +37,7 @@ void Robot::isLevelFinished(int x_position, int y_position)
     if(gameOver)
         cout << "Play again! " << endl;
 
-    else if(x_position == 9 && y_position == 9 && Robot::currentLevel <= 3)
+    else if(x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel <= 3)
      {
         increaseCurrentLevel();
         mazeGrid.generateNewLevel(Robot::currentLevel);
@@ -74,7 +74,7 @@ void Robot::moveLeft()
 }
 void Robot::moveRight()
 {
-    assert(y_position + 1 <= 10);
+    assert(y_position + 1 <= mazeGrid.COL);
     int next_y = y_position + 1;
     if(mazeGrid.isWall(x_position, next_y))
         cout << ">> There's a wall, try again! << " << endl;
@@ -105,7 +105,7 @@ void Robot::moveUp()
 void Robot::moveDown()
 {
 
-    assert(x_position + 1 < 10);
+    assert(x_position + 1 < mazeGrid.ROW);
     int next_x = x_position + 1;
     if(mazeGrid.isWall(next_x, y_position))
         cout << "There's a wall, try again!" << endl;
@@ -164,7 +164,7 @@ void Robot::playGame()
 }
 void Robot::isGameOver(int x_position, int y_position)
 {
-    if (x_position == 9 && y_position == 9 && Robot::currentLevel == 3)
+    if (x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel == 3)
     {
         cout << "You're done! " << endl;
         gameOver = true;

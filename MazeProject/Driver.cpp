@@ -8,5 +8,6 @@ int main()
    Robot bob;
     bob.playGame();
 
+    //cout << bob.mazeGrid.ROW;
     return 0;
 }
