@@ -79,8 +79,8 @@ void Robot::moveLeft()
                     y_position = y_position - 1;
                     drawRobot(x_position, y_position);
                     replacePreviousRobot(x_position, y_position + 1);
-                    displayMenu();
                     mazeGrid.displayMaze();
+                    displayMenu();
                     isLevelFinished(x_position, y_position);
                 }
         }
@@ -109,8 +109,9 @@ void Robot::moveRight()
                     y_position = y_position + 1;
                     drawRobot(x_position, y_position);
                     replacePreviousRobot(x_position, y_position - 1);
-                    displayMenu();
+
                     mazeGrid.displayMaze();
+                    displayMenu();
                     isLevelFinished(x_position, y_position);
                 }
         }
@@ -138,8 +139,9 @@ void Robot::moveUp()
                 x_position = x_position - 1;
                 drawRobot(x_position, y_position);
                 replacePreviousRobot(x_position + 1, y_position);
-                displayMenu();
+
                 mazeGrid.displayMaze();
+                 displayMenu();
                 isLevelFinished(x_position, y_position);
             }
    }
@@ -167,8 +169,8 @@ void Robot::moveDown()
                     x_position = x_position + 1;
                     drawRobot(x_position, y_position);
                     replacePreviousRobot(x_position - 1, y_position);
-                    displayMenu();
                     mazeGrid.displayMaze();
+                    displayMenu();
                     isLevelFinished(x_position, y_position);
                 }
         }
@@ -201,10 +203,13 @@ void Robot::replacePreviousRobot(int previous_x, int previous_y)
 void Robot::playGame()
 {
     int direction;
+    cout << endl << endl;
+    cout << "- - - - - - - - - - - " << endl;
     cout << "Welcome to the maze!" << endl;
-    displayMenu();
-    mazeGrid.displayMaze();
+    cout << "- - - - - - - - - - - " << endl << endl;
 
+    mazeGrid.displayMaze();
+    displayMenu();
     do{
         cin >> direction;
         switch(direction)
@@ -218,6 +223,7 @@ void Robot::playGame()
                 case 3:    moveRight();
                 break;
                 case 4:    moveLeft();
+                default: cout << "Wrong input, try again" << endl;
                 break;
             }
         }while((direction != 5) && !gameOver);
@@ -234,5 +240,5 @@ void Robot::isGameOver(int x_position, int y_position)
 void Robot::displayMenu()
 {
     cout << "(1) Up (2) Down (3) Right (4) Left (5) Quit" << endl;
-    cout << "Move: " << endl;
+    cout << "Move: ";
 }
