@@ -23,7 +23,7 @@ using namespace std;
 int Robot::currentLevel = 1;
 Robot::Robot()
 {
-//    isGameOver = false;
+    gameOver = false;
     x_position = 0;
     y_position = 0;
     robot = 'x';
@@ -33,14 +33,18 @@ Robot::Robot()
 
 void Robot::isLevelFinished(int x_position, int y_position)
 {
-    if(x_position == 9 && y_position == 9 && Robot::currentLevel < 3)
+    isGameOver(x_position, y_position);
+    if(gameOver)
+        cout << "Play again! " << endl;
+
+    else if(x_position == 9 && y_position == 9 && Robot::currentLevel <= 3)
      {
         increaseCurrentLevel();
         mazeGrid.generateNewLevel(Robot::currentLevel);
         resetRobot();
         mazeGrid.displayMaze();
      }
-    isGameOver(x_position, y_position);
+
 
 }
 void Robot::resetRobot()
@@ -141,7 +145,6 @@ void Robot::playGame()
     mazeGrid.displayMaze();
     do{
         cout << "(1) Up (2) Down (3) Right (4) Left (5) Quit" << endl;
-
         cout << "Move: " << endl;
         cin >> direction;
         switch(direction)
@@ -157,12 +160,14 @@ void Robot::playGame()
                 case 4:    moveLeft();
                 break;
             }
-        }while((direction != 5));
+        }while((direction != 5) && !gameOver);
 }
 void Robot::isGameOver(int x_position, int y_position)
 {
-    if (x_position == 9 && y_position == 9 && Robot::currentLevel == 4)
+    if (x_position == 9 && y_position == 9 && Robot::currentLevel == 3)
     {
         cout << "You're done! " << endl;
+        gameOver = true;
     }
+
 }
