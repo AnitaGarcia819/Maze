@@ -3,4 +3,5 @@ MazeProject/.DS_Store
 *.o
 *.layout
 *.depend
-*.DS_STORE
+.DS_STORE
+MazeProject/bin/
