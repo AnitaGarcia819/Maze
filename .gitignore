@@ -1,0 +1,7 @@
+MazeProject/.DS_Store
+*.exe
+*.o
+*.layout
+*.depend
+.DS_STORE
+MazeProject/bin/

@@ -12,8 +12,8 @@ class Maze
         char wall; //might not need it
 
     public:
-        const static int ROW = 25;
-        const static int COL = 25;
+        const static int ROW = 10;
+        const static int COL = 10;
         char maze[ROW][COL];
         Maze();
         void generateNewLevel(int current_level);

@@ -6,8 +6,14 @@ using namespace std;
 int main()
 {
    Robot bob;
-    bob.playGame();
 
-    //cout << bob.mazeGrid.ROW;
+   char playAgain;
+   do{
+        bob.resetGame();
+        bob.playGame();
+        cout << "Would you like to play again? ";
+        cin >> playAgain;
+
+    }while(playAgain != 'n');
     return 0;
 }
