@@ -42,82 +42,133 @@ void Robot::isLevelFinished(int x_position, int y_position)
         increaseCurrentLevel();
         mazeGrid.generateNewLevel(Robot::currentLevel);
         resetRobot();
+        displayMenu();
         mazeGrid.displayMaze();
+
      }
-
-
 }
 void Robot::resetRobot()
 {
     x_position = 0;
     y_position = 0;
-   mazeGrid.maze[0][0] = robot;
-   mazeGrid.maze[9][9] = mazeGrid.getDefaultIcon();
+    mazeGrid.maze[0][0] = robot;
+    mazeGrid.maze[9][9] = mazeGrid.getDefaultIcon();
 }
 void Robot::moveLeft()
 {
-   // assert(!(mazeGrid[x_position][y_position--].isWall(x_position, y_position--)));
-    assert(y_position - 1 >= 0);
+    //assert(y_position - 1 >= 0);
+    if(y_position - 1 >= 0)
+        {
 
-    int next_y = y_position - 1;
-    if(mazeGrid.isWall(x_position, next_y))
-        cout << "There's a wall, try again!" << endl;
+            int next_y = y_position - 1;
+
+            if(mazeGrid.isWall(x_position, next_y))
+                {
+                    cout << ">> There's a wall, try again! << " << endl;
+                    displayMenu();
+                }
+
+            else
+                {
+                    y_position = y_position - 1;
+                    drawRobot(x_position, y_position);
+                    replacePreviousRobot(x_position, y_position + 1);
+                    displayMenu();
+                    mazeGrid.displayMaze();
+                    isLevelFinished(x_position, y_position);
+                }
+        }
     else
-    {
-        y_position = y_position - 1;
-        drawRobot(x_position, y_position);
-        replacePreviousRobot(x_position, y_position + 1);
-        mazeGrid.displayMaze();
-        isLevelFinished(x_position, y_position);
-    }
+        {
+            cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
+            displayMenu();
+        }
 
 }
 void Robot::moveRight()
 {
-    assert(y_position + 1 <= 10);
-    int next_y = y_position + 1;
-    if(mazeGrid.isWall(x_position, next_y))
-        cout << ">> There's a wall, try again! << " << endl;
-    else
-    {
-        y_position = y_position + 1;
-        drawRobot(x_position, y_position);
-        replacePreviousRobot(x_position, y_position - 1);
-        mazeGrid.displayMaze();
-        isLevelFinished(x_position, y_position);
-    }
+    //assert(y_position + 1 <= 10);
+    if(y_position + 1 < 10)
+        {
+            int next_y = y_position + 1;
+
+            if(mazeGrid.isWall(x_position, next_y))
+                {
+                    cout << ">> There's a wall, try again! << " << endl;
+                    displayMenu();
+                }
+            else
+                {
+                    y_position = y_position + 1;
+                    drawRobot(x_position, y_position);
+                    replacePreviousRobot(x_position, y_position - 1);
+                    displayMenu();
+                    mazeGrid.displayMaze();
+                    isLevelFinished(x_position, y_position);
+                }
+        }
+     else
+        {
+            cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
+            displayMenu();
+        }
 }
 void Robot::moveUp()
 {
-    assert(x_position - 1 >= 0);
-    int next_x = x_position - 1;
-    if(mazeGrid.isWall(next_x, y_position))
-        cout << "There's a wall, try again!" << endl;
-    else
+   // assert(x_position - 1 >= 0);
+   if(x_position - 1 >= 0)
     {
-        x_position = x_position - 1;
-        drawRobot(x_position, y_position);
-        replacePreviousRobot(x_position + 1, y_position);
-        mazeGrid.displayMaze();
-        isLevelFinished(x_position, y_position);
-    }
+
+        int next_x = x_position - 1;
+        if(mazeGrid.isWall(next_x, y_position))
+            {
+                cout << ">> There's a wall, try again! << " << endl;
+                displayMenu();
+            }
+        else
+            {
+                x_position = x_position - 1;
+                drawRobot(x_position, y_position);
+                replacePreviousRobot(x_position + 1, y_position);
+                displayMenu();
+                mazeGrid.displayMaze();
+                isLevelFinished(x_position, y_position);
+            }
+   }
+   else
+        {
+            cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
+            displayMenu();
+        }
 }
 void Robot::moveDown()
 {
 
-    assert(x_position + 1 < 10);
-    int next_x = x_position + 1;
-    if(mazeGrid.isWall(next_x, y_position))
-        cout << "There's a wall, try again!" << endl;
-    else
-    {
-        x_position = x_position + 1;
-        drawRobot(x_position, y_position);
-        replacePreviousRobot(x_position - 1, y_position);
-        mazeGrid.displayMaze();
-        isLevelFinished(x_position, y_position);
-    }
+   // assert(x_position + 1 < 10);
+   if(x_position + 1 < 10)
+        {
+            int next_x = x_position + 1;
 
+            if(mazeGrid.isWall(next_x, y_position))
+                {
+                    cout << ">> There's a wall, try again! << " << endl;
+                    displayMenu();
+                }
+            else
+                {
+                    x_position = x_position + 1;
+                    drawRobot(x_position, y_position);
+                    replacePreviousRobot(x_position - 1, y_position);
+                    displayMenu();
+                    mazeGrid.displayMaze();
+                    isLevelFinished(x_position, y_position);
+                }
+        }
+   else
+        {
+            cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
+            displayMenu();
+        }
 }
 void Robot::setRobot(char c)
 {
@@ -142,10 +193,10 @@ void Robot::playGame()
 {
     int direction;
     cout << "Welcome to the maze!" << endl;
+    displayMenu();
     mazeGrid.displayMaze();
+
     do{
-        cout << "(1) Up (2) Down (3) Right (4) Left (5) Quit" << endl;
-        cout << "Move: " << endl;
         cin >> direction;
         switch(direction)
             {
@@ -170,4 +221,9 @@ void Robot::isGameOver(int x_position, int y_position)
         gameOver = true;
     }
 
+}
+void Robot::displayMenu()
+{
+    cout << "(1) Up (2) Down (3) Right (4) Left (5) Quit" << endl;
+    cout << "Move: " << endl;
 }

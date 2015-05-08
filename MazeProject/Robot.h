@@ -14,17 +14,31 @@
 #ifndef ROBOT_H_INCLUDED
 #define ROBOT_H_INCLUDED
 #include "Maze.h"
+#include <iostream>
+using namespace std;
 class Robot
 {
 
+
+void computeSum(int&, int, int);
+// Summary: Compute the sum of two int parameters.
+// Precondition: Two ints to be added together are passed by value into the function; one int is passed
+// by reference to hold the sum.
+// Postcondition: Sum of the two int values is computed and stored in the reference variable.
+//
+// ********************************************************
+//
     private:
         char robot;
 
     public:
+
+        //public variables
         static int currentLevel;
         Maze mazeGrid;
         int x_position, y_position;
         bool gameOver;
+
         Robot();
         //*********************************************************
         //Summary: Constructor, will initialize an object's variables.
@@ -77,6 +91,7 @@ class Robot
         void replacePreviousRobot(int previous_x, int previous_y);
         void playGame();
        void isGameOver(int x_position, int y_position);
+       void displayMenu();
 
 };
 
