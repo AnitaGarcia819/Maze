@@ -72,11 +72,12 @@ class Robot
         void setRobot(char c);
         void increaseCurrentLevel();
         int getCurrentLevel() const {return Robot::currentLevel;}
+        void resetGame();
         void resetRobot();// Sets robot to 0,0 && default icon is set to 9,9
         void drawRobot(int next_x, int next_y); // Draws robot in the next_x & next_y  coordinates
         void replacePreviousRobot(int previous_x, int previous_y);
         void playGame();
-       void isGameOver(int x_position, int y_position);
+        void isGameOver(int x_position, int y_position);
 
 };
 

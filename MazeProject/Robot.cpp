@@ -33,11 +33,10 @@ Robot::Robot()
 
 void Robot::isLevelFinished(int x_position, int y_position)
 {
-    isGameOver(x_position, y_position);
-    if(gameOver)
-        cout << "Play again! " << endl;
+    isGameOver(x_position, y_position); // Checks to see if robot has finished the last level.
 
-    else if(x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel <= 3)
+
+     if(x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel <= 3 && gameOver == false)
      {
         increaseCurrentLevel();
         mazeGrid.generateNewLevel(Robot::currentLevel);
@@ -47,12 +46,18 @@ void Robot::isLevelFinished(int x_position, int y_position)
 
 
 }
+void Robot::resetGame()
+{
+    resetRobot();
+    Robot::currentLevel = 1;
+    gameOver = false;
+}
 void Robot::resetRobot()
 {
     x_position = 0;
     y_position = 0;
    mazeGrid.maze[0][0] = robot;
-   mazeGrid.maze[9][9] = mazeGrid.getDefaultIcon();
+   mazeGrid.maze[Maze::ROW - 1][Maze::COL - 1] = mazeGrid.getDefaultIcon();
 }
 void Robot::moveLeft()
 {
@@ -145,7 +150,7 @@ void Robot::playGame()
     mazeGrid.displayMaze();
     do{
         cout << "(1) Up (2) Down (3) Right (4) Left (5) Quit" << endl;
-        cout << "Move: " << endl;
+        cout << "Move: ";
         cin >> direction;
         switch(direction)
             {
@@ -166,8 +171,8 @@ void Robot::isGameOver(int x_position, int y_position)
 {
     if (x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel == 3)
     {
-        cout << "You're done! " << endl;
         gameOver = true;
+        cout << "Game Over! " << endl;
     }
 
 }
