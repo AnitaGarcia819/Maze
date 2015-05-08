@@ -186,6 +186,28 @@ void Robot::setRobot(char c)
     robot = c;
 }
 
+
+void Robot::setCurrentLevel(char current_level)
+{
+    Robot::currentLevel = current_level;
+}
+
+void Robot::setXposition(int x)
+{
+    x_position = x;
+}
+
+void Robot::setYposition(int y)
+{
+    y_position = y;
+}
+
+void Robot::setIsGameOver(bool game)
+{
+    gameOver = game;
+}
+
+
 void Robot::increaseCurrentLevel()
 {
     if(Robot::currentLevel < 3)
