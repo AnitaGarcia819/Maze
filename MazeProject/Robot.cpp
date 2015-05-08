@@ -36,15 +36,14 @@ void Robot::isLevelFinished(int x_position, int y_position)
     isGameOver(x_position, y_position); // Checks to see if robot has finished the last level.
 
 
-     if(x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel <= 3 && gameOver == false)
+     if(x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel < 3 && gameOver == false)
      {
         increaseCurrentLevel();
         mazeGrid.generateNewLevel(Robot::currentLevel);
         resetRobot();
-        displayMenu();
         mazeGrid.displayMaze();
-
      }
+
 }
 void Robot::resetGame()
 {
@@ -71,7 +70,6 @@ void Robot::moveLeft()
             if(mazeGrid.isWall(x_position, next_y))
                 {
                     cout << ">> There's a wall, try again! << " << endl;
-                    displayMenu();
                 }
 
             else
@@ -80,14 +78,13 @@ void Robot::moveLeft()
                     drawRobot(x_position, y_position);
                     replacePreviousRobot(x_position, y_position + 1);
                     mazeGrid.displayMaze();
-                    displayMenu();
                     isLevelFinished(x_position, y_position);
                 }
         }
     else
         {
             cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
-            displayMenu();
+
         }
 
 }
@@ -95,30 +92,27 @@ void Robot::moveRight()
 {
 
     //assert(y_position + 1 <= 10);
-    if(y_position + 1 < 10)
+    if(y_position + 1 < Maze::COL)
         {
             int next_y = y_position + 1;
 
             if(mazeGrid.isWall(x_position, next_y))
                 {
                     cout << ">> There's a wall, try again! << " << endl;
-                    displayMenu();
                 }
             else
                 {
                     y_position = y_position + 1;
                     drawRobot(x_position, y_position);
                     replacePreviousRobot(x_position, y_position - 1);
-
                     mazeGrid.displayMaze();
-                    displayMenu();
                     isLevelFinished(x_position, y_position);
                 }
         }
      else
         {
             cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
-            displayMenu();
+
         }
 
 }
@@ -132,37 +126,33 @@ void Robot::moveUp()
         if(mazeGrid.isWall(next_x, y_position))
             {
                 cout << ">> There's a wall, try again! << " << endl;
-                displayMenu();
             }
         else
             {
                 x_position = x_position - 1;
                 drawRobot(x_position, y_position);
                 replacePreviousRobot(x_position + 1, y_position);
-
                 mazeGrid.displayMaze();
-                 displayMenu();
                 isLevelFinished(x_position, y_position);
             }
    }
    else
         {
             cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
-            displayMenu();
+
         }
 }
 void Robot::moveDown()
 {
 
    // assert(x_position + 1 < 10);
-   if(x_position + 1 < 10)
+   if(x_position + 1 < Maze::ROW)
         {
             int next_x = x_position + 1;
 
             if(mazeGrid.isWall(next_x, y_position))
                 {
                     cout << ">> There's a wall, try again! << " << endl;
-                    displayMenu();
                 }
             else
                 {
@@ -170,14 +160,13 @@ void Robot::moveDown()
                     drawRobot(x_position, y_position);
                     replacePreviousRobot(x_position - 1, y_position);
                     mazeGrid.displayMaze();
-                    displayMenu();
                     isLevelFinished(x_position, y_position);
                 }
         }
    else
         {
             cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
-            displayMenu();
+
         }
 
 }
@@ -209,8 +198,9 @@ void Robot::playGame()
     cout << "- - - - - - - - - - - " << endl << endl;
 
     mazeGrid.displayMaze();
-    displayMenu();
+
     do{
+        displayMenu();
         cin >> direction;
         switch(direction)
             {
