@@ -142,6 +142,7 @@ void Robot::playGame()
 {
     int direction;
     cout << "Welcome to the maze!" << endl;
+    mazeGrid.generateNewLevel(Robot::currentLevel);
     mazeGrid.displayMaze();
     do{
         cout << "(1) Up (2) Down (3) Right (4) Left (5) Quit" << endl;
