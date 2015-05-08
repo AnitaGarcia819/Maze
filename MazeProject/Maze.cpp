@@ -6,7 +6,7 @@ Maze::Maze()
  {
      //currentLevel = 1;
     defaultIcon = ' ';
-    wall = char(26);
+    wall = '#';
 
     for(int x = 0; x < Maze::ROW; x++)
     {
