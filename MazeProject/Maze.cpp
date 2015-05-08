@@ -7,7 +7,7 @@ Maze::Maze()
      //currentLevel = 1;
     defaultIcon = '_';
     wall = '*';
-    for(int row = 0; row < ROW; row++)
+    for(int row = 0; row < Maze::ROW; row++)
     {
         for(int col = 0; col < COL; col++)
         {
@@ -23,11 +23,15 @@ void Maze::generateNewLevel(int level)
  {
     if(level == 1)
     {
-        for(int x = 0; x < 10; x++)
+
+        for(int x = 0; x < Maze::ROW; x++)
         {
-            for(int y = 0; y < 10; y++)
+            for(int y = 0; y < Maze::COL; y++)
+
             {
-                if((y == 2 && x == 0) || (y == 3 && x == 0) || (y == 4 && x == 0) || (y == 5 && x == 0) || (y == 6 && x == 0) || (y == 7 && x == 0) ||  (y == 8 && x == 0)|| (y == 9 && x == 0)) // first row wall
+                if((y == 2 && x == 0) || (y == 3 && x == 0) || (y == 4 && x == 0) || (y == 5 && x == 0) || (y == 6 && x == 0) || (y == 7 && x == 0) ||  (y == 8 && x == 0)|| (y == 9 && x == 0) ||
+                (y == 10 && x == 0) || (y == 11 && x == 0) || (y == 12 && x == 0) || (y == 13 && x == 0) || (y == 14 && x == 0) || (y == 15 && x == 0) ||  (y == 16 && x == 0)|| (y == 17 && x == 0) ||
+                (y == 18 && x == 0) || (y == 19 && x == 0) || (y == 20 && x == 0) || (y == 21 && x == 0) || (y == 22 && x == 0) || (y == 23 && x == 0) ||  (y == 24 && x == 0)) // first row wall
                     maze[x][y] = '*';
                 if((y == 0 && x == 1) || (y == 0 && x == 2) || (y == 0 && x == 3) || (y == 0 && x == 4) || (y == 0 && x == 5) || (y == 0 && x == 6) || (y == 0 && x == 7) ||  (y == 0 && x == 8)|| (y == 0 && x == 9)) //left column wall
                     maze[x][y] = '*';
@@ -37,6 +41,7 @@ void Maze::generateNewLevel(int level)
                     maze[x][y] = '*';
                 if((x == 2 && y == 1) || (x == 2 && y == 2))
                     maze[x][y] = '*';
+
             }
         }
    }
@@ -56,9 +61,11 @@ void Maze::setWall(char c)
 void Maze::displayMaze()
 {
     cout << "======= Level " << Robot::currentLevel << " =======" << endl;
-    for(int row = 0; row < 10; row++)
+
+    for(int row = 0; row < Maze::ROW; row++)
     {
-        for(int col = 0; col < 10; col++)
+        for(int col = 0; col < Maze::COL; col++)
+
         {
             // To do: display character at maze[row][col]
             cout << maze[row][col];

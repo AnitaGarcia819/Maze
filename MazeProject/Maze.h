@@ -4,8 +4,7 @@ using namespace std;
 
 //const unsigned int ROW = 50;
 //const unsigned int COL = 50;
-        const int ROW = 10;
-        const int COL = 10;
+
 class Maze
 {
     private:
@@ -13,6 +12,8 @@ class Maze
         char wall; //might not need it
 
     public:
+        const static int ROW = 5;
+        const static int COL = 5;
         char maze[ROW][COL];
         Maze();
         void generateNewLevel(int current_level);
