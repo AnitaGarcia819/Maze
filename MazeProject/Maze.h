@@ -4,8 +4,8 @@ using namespace std;
 
 //const unsigned int ROW = 50;
 //const unsigned int COL = 50;
-        const int ROW = 10;
-        const int COL = 10;
+const int ROW = 25;
+const int COL = 25;
 class Maze
 {
     private:
