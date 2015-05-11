@@ -235,6 +235,7 @@ void Robot::playGame()
                 case 3:    moveRight();
                 break;
                 case 4:    moveLeft();
+                break;
                 default: cout << "Wrong input, try again" << endl;
                 break;
             }
