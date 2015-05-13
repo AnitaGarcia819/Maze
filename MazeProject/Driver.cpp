@@ -7,14 +7,16 @@ int main()
 {
    Robot bob;
 
-  char playAgain;
-   do{
-        bob.resetGame();
+  //  bob.mazeGrid.generateNewLevel(2);
+   // bob.mazeGrid.displayMaze();
+ // char playAgain;
+  // do{
+     //   bob.resetGame();
         bob.playGame();
-        cout << "Would you like to play again? ";
-        cin >> playAgain;
+      //  cout << "Would you like to play again? ";
+       // cin >> playAgain;
 
-    }while(playAgain != 'n');
+    //}while(playAgain != 'n');
 
     return 0;
 }
