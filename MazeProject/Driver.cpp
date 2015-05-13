@@ -7,7 +7,7 @@ int main()
 {
    Robot bob;
 
-   char playAgain;
+  char playAgain;
    do{
         bob.resetGame();
         bob.playGame();
@@ -15,5 +15,6 @@ int main()
         cin >> playAgain;
 
     }while(playAgain != 'n');
+
     return 0;
 }

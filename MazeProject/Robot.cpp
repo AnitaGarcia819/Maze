@@ -176,7 +176,7 @@ void Robot::setRobot(char c)
 }
 
 
-void Robot::setCurrentLevel(char current_level)
+void Robot::setCurrentLevel(int current_level)
 {
     Robot::currentLevel = current_level;
 }
@@ -195,7 +195,6 @@ void Robot::setIsGameOver(bool game)
 {
     gameOver = game;
 }
-
 
 void Robot::increaseCurrentLevel()
 {
@@ -224,22 +223,34 @@ void Robot::playGame()
     do{
         displayMenu();
         cin >> direction;
-        switch(direction)
+        while(cin.fail())
+        {
+            cin.clear(); // clears error flag
+            cin.ignore(); // clears input
+            cout << "Wrong input try again.\n";
+            displayMenu();
+            cin >> direction;
+        }
+
+            switch(direction)
             {
-                case 1:    moveUp();
+                case 1: moveUp();
 
                 break;
-                case 2:    moveDown();
+                case 2: moveDown();
                 break;
 
-                case 3:    moveRight();
+                case 3: moveRight();
                 break;
-                case 4:    moveLeft();
+                case 4: moveLeft();
                 break;
                 default: cout << "Wrong input, try again" << endl;
                 break;
             }
+
         }while((direction != 5) && !gameOver);
+
+
 }
 void Robot::isGameOver(int x_position, int y_position)
 {

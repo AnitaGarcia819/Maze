@@ -30,5 +30,6 @@ class Maze
         //condition:
         // Precondition:
         //*********************************************************
+        void resetMaze();
 };
 #endif //MAZE_H_INCLUDED
