@@ -10,7 +10,7 @@
                  This class will use another class Maze and Levels.
 **************************************************************
 */
-//
+
 #include "Robot.h"
 #include "Maze.h"
 #include <cassert>
@@ -89,6 +89,14 @@ void Robot::playGame()
         displayMenu();
 
         cin >> direction;
+        while(cin.fail())
+        {
+            cin.clear(); // clears error flag
+            cin.ignore(); // clears input
+            cout << "Wrong input try again.\n";
+            displayMenu();
+            cin >> direction;
+        }
         switch(direction)
             {
                 case 1:    moveUp();
@@ -203,7 +211,6 @@ void Robot::moveRight()
         }
      else
         cout << "If you want to keep playing, you have to stay in the maze!"<< endl;
-
 
 }
 void Robot::drawRobot(int next_x, int next_y)

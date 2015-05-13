@@ -83,7 +83,7 @@ class Robot
         //*********************************************************
 
         //*********************************************************
-        void setCurrentLevel(char current_level);
+        void setCurrentLevel(int current_level);
         // Summary:
         // Precondition:
         // Postcondition:

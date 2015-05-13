@@ -6,7 +6,7 @@ Maze::Maze()
  {
      //currentLevel = 1;
     defaultIcon = ' ';
-    wall = char(26);
+    wall = '#';
 
     for(int x = 0; x < Maze::ROW; x++)
     {
@@ -15,10 +15,11 @@ Maze::Maze()
             maze[x][y] = defaultIcon;
         }
     }
-
 }
 void Maze::generateNewLevel(int level)
  {
+     resetMaze();
+     cout << "In Generate Level. Level value: " << level << endl;
     if(level == 1)
     {
         for(int x = 0; x < Maze::ROW; x++)
@@ -210,12 +211,8 @@ void Maze::displayMaze()
     for(int row = 0; row < Maze::ROW; row++)
     {
         for(int col = 0; col < Maze::COL; col++)
-
-        {
             // To do: display character at maze[row][col]
             cout << maze[row][col];
-
-        }
         cout << endl;
     }
     cout << endl;
@@ -232,4 +229,12 @@ void Maze::setDefaultIcon(char i)
 {
     defaultIcon = i;
     return;
+}
+void Maze::resetMaze()
+{
+    for(int x = 0; x < Maze::ROW; x++)
+    {
+        for(int y = 0; y < Maze::COL; y++)
+              maze[x][y] = defaultIcon;
+    }
 }
