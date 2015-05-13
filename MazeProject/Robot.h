@@ -93,23 +93,27 @@ class Robot
 
         //*********************************************************
         void setXposition(int x);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Chaned the vaule assidned to the x position  to
+        // the value being passed in
+        // Precondition: value of x can't be negative
+        // Postcondition: x position will be set to the value passed
+        // in to 'x'
         //*********************************************************
 
         //*********************************************************
         void setYposition(int y);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary:Chaned the vaule assidned to the y position  to
+        // the value being passed in
+        // Precondition: value of x can't be negative
+        // Postcondition: x position will be set to the value passed
+        // in to 'y'
         //*********************************************************
 
         //*********************************************************
         void setIsGameOver(bool game);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Changes whether the game is over or not.
+        // Precondition: --
+        // Postcondition: Sets isGameOver to true or false
         //*********************************************************
 
 
@@ -117,38 +121,40 @@ class Robot
 
         //*********************************************************
         void displayMenu();
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Displays menu with directional options for the
+        // user to decided where he wants to move. Options include
+        // moving up, down, right, and left
+        // Precondition: Player should need to make a decision to
+        // make a move for this to display
+        // Postcondition: Menu will be displayed
         //*********************************************************
 
         //*********************************************************
         void playGame();
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: This allows the player to play the game. It will
+        // start at level one and move through three levels and give
+        // the player the option of playing game again.
+        // Precondition: Maze will have been set
+        // Postcondition: User can play game
         //*********************************************************
 
         //*********************************************************
         void moveUp();
-        //Summary: moveUp will move the robot up by decreasing
-        // x's coordinates.
+        //Summary: Player will be able to move up
         // Precondition:
         // Postcondition:
         //*********************************************************
 
         //*********************************************************
         void moveDown();
-        //Summary: moveDown will move the robot down by increasing
-        // x's coordinates.
+        //Summary: Player will be able to move down
         // Precondition:
         // Postcondition:
         //*********************************************************
 
         //*********************************************************
         void moveLeft();
-        // Summary: moveLeft will move the robot to the left by decreasing
-        // y's coordinates.
+        // Summary: Player will be able to move left
         // Precondition:
         // Postcondition:
         //*********************************************************
@@ -156,61 +162,72 @@ class Robot
         //*********************************************************
         void moveRight();
         //*********************************************************
-        //Summary: moveRight will move the robot to the right by
+        //Summary: Player will be able to move right
         // increasing y's coordinates.
         // Precondition:
         // Postcondition:
         //*********************************************************
 
         //*********************************************************
-        void drawRobot(int next_x, int next_y); // Draws robot in the next_x & next_y  coordinates
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        void drawRobot(int next_x, int next_y);
+        // Summary: Draws robot in the next x and y coordinates
+        // Precondition: next cooridnates must not be negative
+        // or out of bound.
+        // Postcondition: Robot character will be places in the
+        // next cooridanates.
         //*********************************************************
 
         //*********************************************************
         void replacePreviousRobot(int previous_x, int previous_y);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Replaces previous robot position with the maze's
+        // defualt icon.
+        // Precondition: previous x and previous y are the cooridantes
+        // that the robot is currently on before it moves to the
+        // next position.
+        // Postcondition: Replaces the previous position of the
+        // robot's previous position to the default value.
         //*********************************************************
 
         //*********************************************************
-        void resetRobot();// Sets robot to 0,0 && default icon is set to 9,9
-        // Summary:
+        void resetRobot();
+        // Summary: Set's Robot to the starting position and
+        // changes the ending postioin to the maze's default icon.
         // Precondition:
-        // Postcondition:
+        // Postcondition: Robot is set to the starting position
         //*********************************************************
 
 
         //*********************************************************
         void increaseCurrentLevel();
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Increases Current Level by one
+        // Precondition: Current level should be >= 1
+        // Postcondition: Level increases by one
         //*********************************************************
 
         void isLevelFinished(int x_position, int y_position);
         //*********************************************************
-        // Summary: isFinish will return true or false whether the robot
+        // Summary: Returns true or false whether the robot
         // has completed the maze and is ready to more to the next level.
-        // Precondition:
-        // Postcondition:
+        // It also checks to see if the game is over or not, if it's
+        // not it will generate new level maze and increase level.
+        // Precondition: inputs are not negative
+        // Postcondition: Will dispaly game over or new maze.
         //*********************************************************
 
         //*********************************************************
         void isGameOver(int x_position, int y_position);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Checks to see if game is over.
+        // Precondition: x position and y postion but not be negative
+        // Postcondition: changes the variable isGameOVer to true or
+        // false.
         //*********************************************************
 
         //*********************************************************
         void resetGame();
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Resets game
+        // Precondition: Level will be over
+        // Postcondition: Changes isGameOver to false, current level
+        // to one, and resets robot.
         //*********************************************************
 
 };

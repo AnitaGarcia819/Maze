@@ -95,7 +95,8 @@ void Maze::generateNewLevel(int level)
         //generate a maze
     else if(level == 2)
     {
-        for(int x = 0; x < Maze::ROW; x++)
+
+      /*  for(int x = 0; x < Maze::ROW; x++)
         {
             for(int y = 0; y < Maze::COL; y++)
 
@@ -166,7 +167,7 @@ void Maze::generateNewLevel(int level)
                     maze[x][y] = wall; // row 23
 
             }
-        }
+        }*/
     }
         //generate a maze
     else

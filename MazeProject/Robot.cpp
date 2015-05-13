@@ -10,7 +10,7 @@
                  This class will use another class Maze and Levels.
 **************************************************************
 */
-
+#define NDEBUG
 #include "Robot.h"
 #include "Maze.h"
 #include <cassert>
@@ -38,6 +38,7 @@ void Robot::setRobot(char c)
 }
 void Robot::setCurrentLevel(int current_level)
 {
+    assert(currentLevel > 0 && currentLevel < 4);
     //change current level (there is only 3 levels)
     if(currentLevel > 0 && currentLevel < 4)
         Robot::currentLevel = current_level;
@@ -47,6 +48,7 @@ void Robot::setCurrentLevel(int current_level)
 }
 void Robot::setXposition(int x)
 {
+    assert(x >= 0 && x < mazeGrid.COL);
     //assignment must be in mazeGrid's range
     if(x >= 0 && x < mazeGrid.COL)
         x_position = x;
@@ -55,6 +57,7 @@ void Robot::setXposition(int x)
 }
 void Robot::setYposition(int y)
 {
+    assert(y >= 0 && y < mazeGrid.ROW);
     //assignment must be in mazeGrid's range
     if(y >= 0 && y < mazeGrid.ROW)
         y_position = y;
@@ -80,11 +83,18 @@ void Robot::playGame()
     cout << "Welcome to the maze!" << endl;
     cout << "- - - - - - - - - - - " << endl << endl;
 
-    //generate maze according to level
-    mazeGrid.generateNewLevel(Robot::currentLevel);
-    mazeGrid.displayMaze();
 
-    //loop repeats until game is over
+
+      char playAgain;
+   do{
+        //Resets game
+        mazeGrid.generateNewLevel(Robot::currentLevel); //generates maze according to level
+        resetRobot(); // Sets Robot to starting position
+        mazeGrid.displayMaze(); //displays Maze
+
+
+    // Loop repeats, allowing player nagivate the maze,
+    // until the rob has wither quit or beat the game.
     do{
         displayMenu();
 
@@ -116,10 +126,17 @@ void Robot::playGame()
                 break;
             }
         }while((direction != 5) && !gameOver);
+        resetGame();
+        // Asks user to play an other game, starting at the beginning.
+        cout << "Would you like to play again? ";
+        cin >> playAgain;
+
+    }while(playAgain != 'n');
 
 }
 void Robot::moveUp()
 {
+    assert(x_position - 1 >= 0);
   //checks if robot can move up
   //if there is a wall, displays a message
 
@@ -143,6 +160,7 @@ void Robot::moveUp()
 }
 void Robot::moveDown()
 {
+   assert(x_position + 1 < Maze::ROW);
    //checks if robot can move down
   //if there is a wall, displays a message
 
@@ -167,6 +185,7 @@ void Robot::moveDown()
 }
 void Robot::moveLeft()
 {
+    assert(y_position - 1 >= 0);
     //checks if robot can move left
     //if there is a wall, displays a message
 
@@ -193,6 +212,7 @@ void Robot::moveRight()
 {
     //checks if robot can move right
     //if there is a wall, displays a message
+    assert(y_position + 1 < Maze::COL);
 
     if(y_position + 1 < Maze::COL)
         {
@@ -215,11 +235,13 @@ void Robot::moveRight()
 }
 void Robot::drawRobot(int next_x, int next_y)
 {
+    assert((next_x >=0 && next_x < Maze::ROW )&& (next_y >= 0 && next_y < Maze::COL));
     //displays the robot's position
     mazeGrid.maze[next_x][next_y] = robot;
 }
 void Robot::replacePreviousRobot(int previous_x, int previous_y)
 {
+    assert((previous_x >= 0 && previous_x < Maze::ROW )&& (previous_y >= 0) && previous_y < Maze::COL) ;
     //erases the robot's past location
    mazeGrid.maze[previous_x][previous_y] = mazeGrid.getDefaultIcon();
 }
@@ -228,12 +250,13 @@ void Robot::resetRobot()
     //if user wants to play again, reset robot& game to default settings
     x_position = 0;
     y_position = 0;
-   mazeGrid.maze[0][0] = robot;
-   mazeGrid.maze[Maze::ROW - 1][Maze::COL - 1] = mazeGrid.getDefaultIcon();
+    mazeGrid.maze[0][0] = robot;
+    mazeGrid.maze[Maze::ROW - 1][Maze::COL - 1] = mazeGrid.getDefaultIcon();
 
 }
 void Robot::increaseCurrentLevel()
 {
+    assert(Robot::currentLevel < 3);
     //up to level 3
     if(Robot::currentLevel < 3)
         Robot::currentLevel++;
@@ -242,6 +265,8 @@ void Robot::increaseCurrentLevel()
 
 void Robot::isLevelFinished(int x_position, int y_position)
 {
+    assert(x_position >= 0 && x_position < Maze::ROW);
+    assert(y_position >= 0 && y_position < Maze::COL);
     isGameOver(x_position, y_position); // Checks to see if robot has finished the last level.
 
     //condition to check if game is not over
@@ -258,6 +283,8 @@ void Robot::isLevelFinished(int x_position, int y_position)
 
 void Robot::isGameOver(int x_position, int y_position)
 {
+    assert(x_position >= 0  && x_position < Maze::ROW );
+    assert(y_position >= 0 && y_position < Maze::COL);
     //checks to see if game is over
     if (x_position == mazeGrid.ROW - 1 && y_position == mazeGrid.COL - 1 && Robot::currentLevel == 3)
     {
@@ -269,6 +296,7 @@ void Robot::isGameOver(int x_position, int y_position)
 
 void Robot::resetGame()
 {
+    assert(gameOver == true);
     //calls the methods to initialize robot and level
     resetRobot();
     Robot::currentLevel = 1;
