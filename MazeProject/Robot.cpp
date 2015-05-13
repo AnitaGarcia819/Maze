@@ -10,7 +10,7 @@
                  This class will use another class Maze and Levels.
 **************************************************************
 */
-//
+
 #include "Robot.h"
 #include "Maze.h"
 #include <cassert>
