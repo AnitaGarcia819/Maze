@@ -36,7 +36,7 @@ void Robot::setRobot(char c)
     //assign a character to represent the robot
     robot = c;
 }
-void Robot::setCurrentLevel(char current_level)
+void Robot::setCurrentLevel(int current_level)
 {
     //change current level (there is only 3 levels)
     if(currentLevel > 0 && currentLevel < 4)

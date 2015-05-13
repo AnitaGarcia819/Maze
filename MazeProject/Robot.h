@@ -32,61 +32,63 @@ class Robot
         Robot();
         // Summary: Constructor, will initialize an object's variables.
         // and place the robot at th starting position.
-        // Precondition:
-        // Postcondition:
+        // Precondition: --
+        // Postcondition: Member variables will be set to default values
         //*********************************************************
 
         // Accessors
 
         //*********************************************************
         char getRobot() const {return robot;}
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Accesses the robot character
+        // Precondition: The member variable, 'robot' should be set
+        // Postcondition: Returns robot
         //*********************************************************
 
         //*********************************************************
         int getCurrentLevel() const {return Robot::currentLevel;}
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Accesses the static variable current level
+        // Precondition: Current level is to be 1-3
+        // Postcondition: Returns currentlevel
         //*********************************************************
 
         //*********************************************************
         int getXPosition() const {return x_position;}
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Accesses the robot's x position
+        // Precondition: 'x_position' should not be negative
+        // Postcondition: Returns x_position
         //*********************************************************
 
         //*********************************************************
         int getYPosition() const {return y_position;}
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Accesses the robot's y_position
+        // Precondition: 'y_position' should not be negative
+        // Postcondition: Returns y_position
         //*********************************************************
 
         //*********************************************************
         bool getGameOver() const {return gameOver;}
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Accesses the game's satus to see if the game
+        // is over or not
+        // Precondition: gameOver should be true or false
+        // Postcondition: Returns boolean
         //*********************************************************
 
         // Mutators
 
         //*********************************************************
         void setRobot(char c);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Changes the value assigned to the robot's character
+        // Precondition: 'c' being passed in is a char
+        // Postcondition: Robot character will be set to 'c' passed in
         //*********************************************************
 
         //*********************************************************
         void setCurrentLevel(int current_level);
-        // Summary:
-        // Precondition:
-        // Postcondition:
+        // Summary: Changes the value assigned to the current level
+        // to the value being passed in
+        // Precondition: currentl level being passed in is not negative
+        // Postcondition: Current level will be set to value passed in
         //*********************************************************
 
         //*********************************************************
