@@ -38,9 +38,9 @@ void Robot::setRobot(char c)
 }
 void Robot::setCurrentLevel(int current_level)
 {
-    assert(currentLevel > 0 && currentLevel < 4);
+    assert(current_level > 0 && current_level < 4);
     //change current level (there is only 3 levels)
-    if(currentLevel > 0 && currentLevel < 4)
+    if(current_level > 0 && current_level < 4)
         Robot::currentLevel = current_level;
 
     else
@@ -49,18 +49,29 @@ void Robot::setCurrentLevel(int current_level)
 void Robot::setXposition(int x)
 {
     assert(x >= 0 && x < mazeGrid.COL);
+    assert(mazeGrid.isWall(x, y_position) == 0);
     //assignment must be in mazeGrid's range
-    if(x >= 0 && x < mazeGrid.COL)
-        x_position = x;
+    if(x >= 0 && x < mazeGrid.COL && mazeGrid.isWall(x, y_position)== 0)
+    {
+        replacePreviousRobot(x_position, y_position);
+         x_position = x;
+        drawRobot(x, y_position);
+    }
     else
         cout << "Robot must stay inside maze of grid: " << mazeGrid.COL << " X "<< mazeGrid.ROW << endl;
 }
 void Robot::setYposition(int y)
 {
     assert(y >= 0 && y < mazeGrid.ROW);
+    assert(mazeGrid.isWall(x_position, y) == 0);
     //assignment must be in mazeGrid's range
-    if(y >= 0 && y < mazeGrid.ROW)
+    if(y >= 0 && y < mazeGrid.ROW && mazeGrid.isWall(x_position, y)== 0)
+    {
+
+        replacePreviousRobot(x_position, y_position);
         y_position = y;
+        drawRobot(x_position, y);
+    }
     else
         cout << "Robot must stay inside maze of grid: " << mazeGrid.COL << " X "<< mazeGrid.ROW << endl;
 }
