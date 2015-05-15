@@ -5,18 +5,9 @@ using namespace std;
 
 int main()
 {
-   Robot bob;
+    Robot bob;
 
-  //  bob.mazeGrid.generateNewLevel(2);
-   // bob.mazeGrid.displayMaze();
- // char playAgain;
-  // do{
-     //   bob.resetGame();
-        bob.playGame();
-      //  cout << "Would you like to play again? ";
-       // cin >> playAgain;
-
-    //}while(playAgain != 'n');
+    bob.playGame();
 
     return 0;
 }
