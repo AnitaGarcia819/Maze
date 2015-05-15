@@ -143,22 +143,22 @@ class Robot
         //*********************************************************
         void moveUp();
         //Summary: Player will be able to move up
-        // Precondition:
-        // Postcondition:
+        // Precondition: --
+        // Postcondition: Moves up
         //*********************************************************
 
         //*********************************************************
         void moveDown();
         //Summary: Player will be able to move down
-        // Precondition:
-        // Postcondition:
+        // Precondition: --
+        // Postcondition: Moves down
         //*********************************************************
 
         //*********************************************************
         void moveLeft();
         // Summary: Player will be able to move left
-        // Precondition:
-        // Postcondition:
+        // Precondition: --
+        // Postcondition:Moves left
         //*********************************************************
 
         //*********************************************************
@@ -166,8 +166,8 @@ class Robot
         //*********************************************************
         //Summary: Player will be able to move right
         // increasing y's coordinates.
-        // Precondition:
-        // Postcondition:
+        // Precondition: --
+        // Postcondition: Moves right
         //*********************************************************
 
         //*********************************************************
