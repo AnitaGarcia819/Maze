@@ -1,6 +1,6 @@
 /*
 *************************************************************
-    filename:Robot.cpp
+    filename:Robot.h
     Class Name: Robot
     Author: Araceli Gopar, Anita Garcia, Ana Perez
     Date: 4/18/2015
