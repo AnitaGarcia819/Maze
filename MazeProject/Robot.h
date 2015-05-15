@@ -1,14 +1,16 @@
 /*
-*************************************************************
+***********************************************************************************
     filename:Robot.cpp
     Class Name: Robot
     Author: Araceli Gopar, Anita Garcia, Ana Perez
     Date: 4/18/2015
     Compiler: code blocks 13.12
-    Description: Robots class will mimic a robot finding its way out of maze.
-                 Objects of type robot will be able to choose the direction in where to more.
-                 This class will use another class Maze and Levels.
-**************************************************************
+    Description: Robot class will mimic a robot finding its way
+                out of the maze. It includes a character that
+                represents a robot, a maze of type Maze that the robot will
+                navigate through, the current level that the robot is on,
+                moving functionality of the robot, and an option to play the game.
+************************************************************************************
 */
 
 #ifndef ROBOT_H_INCLUDED
