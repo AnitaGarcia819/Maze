@@ -1,20 +1,20 @@
-/*
-***********************************************************************************
-    filename:Robot.cpp
-    Class Name: Robot
-    Author: Araceli Gopar, Anita Garcia, Ana Perez
-    Date: 4/18/2015
-    Compiler: code blocks 13.12
-    Description: Robot class will mimic a robot finding its way
-                out of the maze. It includes a character that
-                represents a robot, a maze of type Maze that the robot will
-                navigate through, the current level that the robot is on,
-                moving functionality of the robot, and an option to play the game.
-************************************************************************************
-*/
-
 #ifndef ROBOT_H_INCLUDED
 #define ROBOT_H_INCLUDED
+// ***********************************************************************************
+// filename:Robot.cpp
+// Class Name: Robot
+// Author: Araceli Gopar, Anita Garcia, Ana Perez
+// Date: 4/18/2015
+// Compiler: code blocks 13.12
+// Description: The Robot class represents a robot that finds its way through a maze.
+//    The Class includes a character that represents a robot, a maze of type Maze that
+//    the robot will navigate through, the current level that the robot is on, moving
+//    functionality of the robot, and an option to play the game. The robot includes the
+//    Maze class in order for the robot to have a maze to navigate through. The Robot
+//    class used several maze functions, like checking to see if the robot’s next move
+//    will be a wall or not, to display the maze, and generate new level, reset maze
+//    during the robot’s venture through the maze.
+// ************************************************************************************
 #include "Maze.h"
 #include <iostream>
 using namespace std;
