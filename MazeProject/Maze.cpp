@@ -1,10 +1,19 @@
+
+// *********************************************************************
+// Filename:Maze.cpp
+//    Author: Araceli Gopar, Anita Garcia, Ana Perez
+//    Date: 4/18/2015
+//    Compiler: code blocks 13.12
+//    Description: This file holds the implementation methods of
+//                 the maze class. It generates a maze, resets the
+//                 maze, checks for walls, and it also sets the walls.
+// ********************************************************************
 #include <iostream>
 #include "Maze.h"
 #include "Robot.h"
 
 Maze::Maze()
  {
-     //currentLevel = 1;
     defaultIcon = ' ';
     wall = '#';
 
@@ -239,7 +248,7 @@ void Maze::generateNewLevel(int level)
                     maze[x][y] = wall; //row 20
                 else if((y == 3 || y == 5 || y == 14 || y == 19 || y == 20 || y == 21 || y == 23) && (x == 21))
                     maze[x][y] = wall; //row 21
-                else if((y == 3 || y == 5 || y == 5 || y == 6 || y ==  7 || y == 8 || y == 9 || y == 10 | y == 11 || y == 12 || y == 13 || y == 14 || y == 19 || y == 20 || y == 21 || y == 23) && (x == 22))
+                else if((y == 3 || y == 5 || y == 5 || y == 6 || y ==  7 || y == 8 || y == 9 || y == 10 || y == 11 || y == 12 || y == 13 || y == 14 || y == 19 || y == 20 || y == 21 || y == 23) && (x == 22))
                     maze[x][y] = wall; //row 22
                 else if((y == 3 || y == 16 || y == 17 ) && (x == 23))
                     maze[x][y] = wall; //row 23
@@ -250,38 +259,37 @@ void Maze::generateNewLevel(int level)
  }
 
 
-void Maze::setWall(char c)
+void Maze::setWall(char c) //creates wall for maze
 {
     wall = c;
     return;
 }
-void Maze::displayMaze()
+void Maze::displayMaze() //displays a maze
 {
     cout << "======= Level " << Robot::currentLevel << " =======" << endl;
 
     for(int row = 0; row < Maze::ROW; row++)
     {
         for(int col = 0; col < Maze::COL; col++)
-            // To do: display character at maze[row][col]
             cout << maze[row][col];
         cout << endl;
     }
     cout << endl;
     return;
 }
-bool Maze::isWall(int next_x, int next_y)
+bool Maze::isWall(int next_x, int next_y) //lets Robot know if there is a wall or not
 {
     if(maze[next_x][next_y] == wall)
         return true;
 
     return false;
 }
-void Maze::setDefaultIcon(char i)
+void Maze::setDefaultIcon(char i) //default wall
 {
     defaultIcon = i;
     return;
 }
-void Maze::resetMaze()
+void Maze::resetMaze() //restore maze to empty to hold new maze
 {
     for(int x = 0; x < Maze::ROW; x++)
     {
