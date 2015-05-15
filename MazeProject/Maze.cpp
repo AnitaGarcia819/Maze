@@ -19,7 +19,6 @@ Maze::Maze()
 void Maze::generateNewLevel(int level)
  {
     resetMaze();
-     cout << "In Generate Level. Level value: " << level << endl;
     if(level == 1)
     {
         for(int x = 0; x < Maze::ROW; x++)

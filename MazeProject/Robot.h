@@ -1,7 +1,7 @@
 #ifndef ROBOT_H_INCLUDED
 #define ROBOT_H_INCLUDED
 // ***********************************************************************************
-// filename:Robot.cpp
+// Filename:Robot.cpp
 // Class Name: Robot
 // Author: Araceli Gopar, Anita Garcia, Ana Perez
 // Date: 4/18/2015

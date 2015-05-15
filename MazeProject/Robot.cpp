@@ -1,6 +1,6 @@
 #define NDEBUG
 //*************************************************************
-//    filename:Robot.cpp
+//    Filename:Robot.cpp
 //    Class Name: Robot
 //    Author: Araceli Gopar, Anita Garcia, Ana Perez
 //    Date: 4/18/2015
